@@ -169,6 +169,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="events\Events.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="Hooks.cpp" />
     <ClCompile Include="Modding.cpp" />

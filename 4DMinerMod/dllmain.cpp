@@ -11,12 +11,18 @@
 
 void MainThread() {
     Modding* modding = new Modding();
-    auto d = (eventpp::EventDispatcher<Events, void(std::vector<void*>)>*) modding->getDispatcher();
+    auto d = (eventpp::EventDispatcher<Events, void(IEvent*)>*) modding->getDispatcher();
 
-    d->appendListener(EVENT_PRE_PLAYER_UPDATE, [](std::vector<void*> args) {
-        if (((Player*)args[0])->targetingBlock && ((Player*)args[0])->keys.leftMouseDown) {
-            ((Player*)args[0])->targetDamage = 1.0;
+    d->appendListener(EVENT_PLAYER_UPDATE, [](IEvent* e) {
+        PlayerUpdateEvent* event = (PlayerUpdateEvent*)e;
+        if (event->player->targetingBlock && event->player->keys.leftMouseDown) {
+            event->player->targetDamage = 1.0;
         }
+    });
+    
+    d->appendListener(EVENT_BLOCK_BREAK, [](IEvent* e) {
+        printf("Block broke !\n");
+        e->cancelled = true;
     });
 }
 

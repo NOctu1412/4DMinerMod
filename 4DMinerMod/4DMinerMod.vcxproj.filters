@@ -42,6 +42,9 @@
     <ClCompile Include="Modding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="events\Events.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helpers.hpp">

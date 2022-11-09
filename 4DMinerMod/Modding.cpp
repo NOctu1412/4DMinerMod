@@ -4,13 +4,13 @@
 
 #include "helpers.hpp"
 #include "Hooks.hpp"
-#include <eventpp/eventdispatcher.h>
 #include "events/Events.hpp"
+#include <eventpp/eventdispatcher.h>
 
 Modding* modding;
 
 Hooks* hooks;
-eventpp::EventDispatcher<Events, void(std::vector<void*>)> dispatcher;
+eventpp::EventDispatcher<Events, void(IEvent*)> dispatcher;
 StateManager* stateManager;
 
 uintptr_t gameAddr;
