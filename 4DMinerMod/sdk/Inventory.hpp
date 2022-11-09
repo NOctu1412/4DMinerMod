@@ -3,8 +3,8 @@
 #include <cstdint>
 #include <glm/glm.hpp>
 
-#include "Item.hpp"
-#include "Gui.hpp"
+#include "sdk/Item.hpp"
+#include "sdk/Gui.hpp"
 
 class InventoryCursor {
 public:

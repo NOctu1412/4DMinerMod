@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <vector>
 #include <glm/glm.hpp>
 #include "QuadRenderer.hpp"
 #include "FontRenderer.hpp"

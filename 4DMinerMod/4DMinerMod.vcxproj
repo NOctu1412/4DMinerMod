@@ -71,6 +71,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -85,6 +101,8 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -105,6 +123,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,6 +141,8 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -141,36 +163,48 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="EventDispatcher.cpp" />
-    <ClCompile Include="EventListener.cpp" />
     <ClCompile Include="helpers.cpp" />
     <ClCompile Include="Hooks.cpp" />
     <ClCompile Include="Modding.cpp" />
-    <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="sdk\StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EventDispatcher.hpp" />
-    <ClInclude Include="EventListener.hpp" />
-    <ClInclude Include="Events.hpp" />
-    <ClInclude Include="FontRenderer.hpp" />
-    <ClInclude Include="Gui.hpp" />
+    <ClInclude Include="dexode\EventBus.hpp" />
+    <ClInclude Include="dexode\eventbus\Bus.hpp" />
+    <ClInclude Include="dexode\eventbus\internal\event_id.hpp" />
+    <ClInclude Include="dexode\eventbus\internal\ListenerAttorney.hpp" />
+    <ClInclude Include="dexode\eventbus\internal\listener_traits.hpp" />
+    <ClInclude Include="dexode\eventbus\Listener.hpp" />
+    <ClInclude Include="dexode\eventbus\perk\PassPerk.hpp" />
+    <ClInclude Include="dexode\eventbus\perk\Perk.hpp" />
+    <ClInclude Include="dexode\eventbus\perk\PerkEventBus.hpp" />
+    <ClInclude Include="dexode\eventbus\perk\TagPerk.hpp" />
+    <ClInclude Include="dexode\eventbus\perk\WaitPerk.hpp" />
+    <ClInclude Include="dexode\eventbus\permission\PostponeBus.hpp" />
+    <ClInclude Include="dexode\eventbus\stream\EventStream.hpp" />
+    <ClInclude Include="dexode\eventbus\stream\ProtectedEventStream.hpp" />
+    <ClInclude Include="events\Events.hpp" />
+    <ClInclude Include="sdk\FontRenderer.hpp" />
+    <ClInclude Include="sdk\Gui.hpp" />
     <ClInclude Include="helpers.hpp" />
     <ClInclude Include="Hooks.hpp" />
-    <ClInclude Include="Inventory.hpp" />
-    <ClInclude Include="Item.hpp" />
-    <ClInclude Include="Mat.hpp" />
-    <ClInclude Include="MeshRenderer.hpp" />
+    <ClInclude Include="sdk\Inventory.hpp" />
+    <ClInclude Include="sdk\Item.hpp" />
+    <ClInclude Include="sdk\Mat.hpp" />
+    <ClInclude Include="sdk\MeshRenderer.hpp" />
     <ClInclude Include="Modding.hpp" />
-    <ClInclude Include="Player.hpp" />
-    <ClInclude Include="QuadRenderer.hpp" />
-    <ClInclude Include="StateManager.hpp" />
-    <ClInclude Include="States.hpp" />
-    <ClInclude Include="TexRenderer.hpp" />
-    <ClInclude Include="World.hpp" />
+    <ClInclude Include="sdk\Player.hpp" />
+    <ClInclude Include="sdk\QuadRenderer.hpp" />
+    <ClInclude Include="sdk\StateManager.hpp" />
+    <ClInclude Include="sdk\States.hpp" />
+    <ClInclude Include="sdk\TexRenderer.hpp" />
+    <ClInclude Include="sdk\World.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

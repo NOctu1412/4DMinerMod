@@ -33,7 +33,7 @@
     <ClCompile Include="helpers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StateManager.cpp">
+    <ClCompile Include="sdk\StateManager.cpp">
       <Filter>Source Files\sdk</Filter>
     </ClCompile>
     <ClCompile Include="Hooks.cpp">
@@ -42,51 +42,45 @@
     <ClCompile Include="Modding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EventListener.cpp">
-      <Filter>Source Files\events</Filter>
-    </ClCompile>
-    <ClCompile Include="EventDispatcher.cpp">
-      <Filter>Source Files\events</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="helpers.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StateManager.hpp">
+    <ClInclude Include="sdk\StateManager.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="States.hpp">
+    <ClInclude Include="sdk\States.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="FontRenderer.hpp">
+    <ClInclude Include="sdk\FontRenderer.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="QuadRenderer.hpp">
+    <ClInclude Include="sdk\QuadRenderer.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="TexRenderer.hpp">
+    <ClInclude Include="sdk\TexRenderer.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="World.hpp">
+    <ClInclude Include="sdk\World.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="MeshRenderer.hpp">
+    <ClInclude Include="sdk\MeshRenderer.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="Player.hpp">
+    <ClInclude Include="sdk\Player.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.hpp">
+    <ClInclude Include="sdk\Inventory.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="Item.hpp">
+    <ClInclude Include="sdk\Item.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="Mat.hpp">
+    <ClInclude Include="sdk\Mat.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
-    <ClInclude Include="Gui.hpp">
+    <ClInclude Include="sdk\Gui.hpp">
       <Filter>Header Files\sdk</Filter>
     </ClInclude>
     <ClInclude Include="Hooks.hpp">
@@ -95,14 +89,50 @@
     <ClInclude Include="Modding.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EventListener.hpp">
+    <ClInclude Include="events\Events.hpp">
       <Filter>Header Files\events</Filter>
     </ClInclude>
-    <ClInclude Include="EventDispatcher.hpp">
-      <Filter>Header Files\events</Filter>
+    <ClInclude Include="dexode\eventbus\internal\event_id.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Events.hpp">
-      <Filter>Header Files\events</Filter>
+    <ClInclude Include="dexode\eventbus\internal\listener_traits.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\internal\ListenerAttorney.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\perk\PassPerk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\perk\Perk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\perk\PerkEventBus.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\perk\TagPerk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\perk\WaitPerk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\permission\PostponeBus.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\stream\EventStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\stream\ProtectedEventStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\Bus.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\eventbus\Listener.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dexode\EventBus.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

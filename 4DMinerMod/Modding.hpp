@@ -10,9 +10,8 @@ public:
 private:
 	void init();
 public:
-
 	class Hooks* getHooks();
-	class EventDispatcher* getDispatcher();
+	void* getDispatcher();
 	class StateManager* getStateManager();
 	uintptr_t getGameAddress();
 };
