@@ -18,11 +18,13 @@ void MainThread() {
         if (event->player->targetingBlock && event->player->keys.leftMouseDown) {
             event->player->targetDamage = 1.0;
         }
+
+        event->player->vel[0] = 0;
     });
     
-    d->appendListener(EVENT_BLOCK_BREAK, [](IEvent* e) {
-        printf("Block broke !\n");
-        e->cancelled = true;
+    d->appendListener(EVENT_PLAYER_KEY_INPUT, [](IEvent* e) {
+        PlayerKeyInputEvent* event = (PlayerKeyInputEvent*)e;
+        printf("Pressed %c\n", (char)event->key);
     });
 }
 

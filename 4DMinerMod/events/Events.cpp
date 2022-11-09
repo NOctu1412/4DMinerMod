@@ -20,3 +20,19 @@ BlockBreakEvent::BlockBreakEvent(ToolItem* i, class Player* p, class World* w, u
 	this->world = w;
 	this->blockId = blockId;
 }
+
+PlayerCollisionEvent::PlayerCollisionEvent(Player* p, World* w) {
+	this->e = EVENT_PLAYER_COLLISION;
+	this->player = p;
+	this->world = w;
+}
+
+PlayerKeyInputEvent::PlayerKeyInputEvent(class Player* p, void* w, int k, int s, int a, char m) {
+	this->e = EVENT_PLAYER_KEY_INPUT;
+	this->player = p;
+	this->window = w;
+	this->key = k;
+	this->scancode = s;
+	this->action = a;
+	this->mods = m;
+}
