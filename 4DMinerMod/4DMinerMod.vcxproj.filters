@@ -19,6 +19,12 @@
     <Filter Include="Source Files\sdk">
       <UniqueIdentifier>{5db6ebfd-df33-4589-9eef-a0fdd79ba288}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\events">
+      <UniqueIdentifier>{41f88645-9cc4-402c-8109-2c21a828551c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\events">
+      <UniqueIdentifier>{f4184512-73bf-4c70-bbf2-8bd16b8d7af9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -29,6 +35,18 @@
     </ClCompile>
     <ClCompile Include="StateManager.cpp">
       <Filter>Source Files\sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventListener.cpp">
+      <Filter>Source Files\events</Filter>
+    </ClCompile>
+    <ClCompile Include="EventDispatcher.cpp">
+      <Filter>Source Files\events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +88,21 @@
     </ClInclude>
     <ClInclude Include="Gui.hpp">
       <Filter>Header Files\sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Modding.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListener.hpp">
+      <Filter>Header Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="EventDispatcher.hpp">
+      <Filter>Header Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="Events.hpp">
+      <Filter>Header Files\events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

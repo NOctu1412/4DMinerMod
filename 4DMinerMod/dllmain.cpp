@@ -1,17 +1,12 @@
 #include <Windows.h>
 #include <iostream>
-#include <detours.h>
 
-#include "helpers.hpp"
-#include "StateManager.hpp"
-#include "States.hpp"
+#include "Modding.hpp"
+#include "EventDispatcher.hpp"
 
-HMODULE hMod;
+#include "Player.hpp"
 
-typedef void(__fastcall* playerUpdateFunc)(Player* thiz, void* window, World* world);
-playerUpdateFunc ogFunc;
-
-void __fastcall playerUpdateHook(Player* p, void* window, World* world) {
+/*void __fastcall playerUpdateHook(Player* p, void* window, World* world) {
     if (p->targetingBlock && p->keys.leftMouseDown) { //INSTANT BREAK//
         p->targetDamage = 1.0;
     }
@@ -26,26 +21,29 @@ void __fastcall playerUpdateHook(Player* p, void* window, World* world) {
     ogFunc(p, window, world); //CALL THE ORIGINAL METHOD//
 
     p->vel.x = 0; //FLY//
-}
+
+    ogFunc(p, window, world);
+}*/
+
+class TestListener : public Listener {
+public:
+    TestListener() {
+        this->addEvent(EVENT_PRE_PLAYER_UPDATE);
+        this->addEvent(EVENT_POST_PLAYER_UPDATE);
+    }
+
+    void listen(Events e, std::vector<void*> args) override {
+        if (e == EVENT_PRE_PLAYER_UPDATE) {
+            if (((Player*)args[0])->targetingBlock && ((Player*)args[0])->keys.leftMouseDown) {
+                ((Player*)args[0])->targetDamage = 1.0;
+            }
+        }
+    }
+};
 
 void MainThread() {
-    OpenConsole();
-
-    //get module base addr//
-    uintptr_t gameAddr = (uintptr_t)GetModuleHandleA("4D Miner.exe");
-
-    //hook player update//
-    ogFunc = (playerUpdateFunc)((uintptr_t)(gameAddr + 0x6EA60));
-    DetourTransactionBegin();
-    DetourUpdateThread(GetCurrentThread());
-    DetourAttach(&(PVOID&)ogFunc, playerUpdateHook);
-    DetourTransactionCommit();
-
-    //get the gamestate//
-    StateManager* stateManager = **reinterpret_cast<StateManager***>((uintptr_t)(gameAddr + 0x1A6E58));
-    GameState* t = reinterpret_cast<GameState*>(stateManager->getState(0));
-    
-    t->player.inventoryGUI.craftingText.text = "Baka Mod"; //replace the crafting text
+    Modding* modding = new Modding();
+    modding->getDispatcher()->addListener(new TestListener());
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,
@@ -54,7 +52,6 @@ BOOL APIENTRY DllMain( HMODULE hModule,
                      )
 {
     if (ul_reason_for_call == DLL_PROCESS_ATTACH) {
-        hMod = hModule;
         HANDLE thread = CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)MainThread, NULL, NULL, NULL);
     }
     return TRUE;
